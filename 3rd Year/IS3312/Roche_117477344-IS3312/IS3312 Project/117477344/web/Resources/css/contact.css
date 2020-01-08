@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 Nov 2019, 13:02:44
+    Author     : oliviaroche
+*/
+
+.biggestContainer{
+    height: 100%;
+}
+
+.bigContainer {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em auto;
+}
+
+.smContainer {
+    padding: 2em;
+    margin-right: 1em;
+    display: flex;
+    flex: 1 1 0%;
+    border: 1px solid #eee;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.smContainer img {
+    width: 40%;
+    /* max-width: 79px; */
+    max-height: 95px;
+    height: 45%;
+    margin-bottom: 1em;
+}
+
+.smallerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.smallerContainer p {
+    padding: 0em;
+}

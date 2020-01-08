@@ -1,0 +1,176 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Nov 2019, 13:27:01
+    Author     : oliviaroche
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Nov 2019, 14:07:21
+    Author     : oliviaroche
+*/
+
+
+.bigContainer {
+    width: 90%;
+    height: 96%;
+    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.one {
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.two {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.containers {
+    width: 100%;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.secondContainers.thirdContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.two .secondContainers:first-child {
+    margin-right: 1em;
+}
+.secondContainers {
+    width: 100%;
+}
+
+.smallContainers:first-child {
+    margin-bottom: 1em;
+}
+
+.smallContainers {
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+ .details, .apply-coupon , .seller-info , summary-button {
+    width: 100%;
+    background: white;
+}
+
+
+textarea.seller-notes {
+    width: 100%;
+}
+
+.summaryTitle {
+    background: #f8f9fa;
+    border-radius: 1.4em;
+    width: 95%;
+    text-align: left;
+    display: flex;
+    margin-top: 1em;
+}
+
+.seller-info {
+    line-height: 9em;
+    display: flex;
+    justify-content: center;
+    padding: .7em;
+    margin-top: -10%;
+}
+
+
+
+.summaryTitle h3 {
+    margin-left: 0.8em;
+}
+
+.details p {
+    font-style: italic;
+    padding: 4em;
+}
+
+.apply-coupon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+}
+
+a.apply-cp-button , .summary-button .checkout_button {
+    display: flex;
+    align-items: center;
+    padding: 0.3em;
+    border-radius: 44px;
+    border: none;
+    background: pink;
+    color: white;
+}
+
+i.fa.fa-gift {
+    margin: .2em;
+}
+
+
+h3.attribute , div.attribute ,i.attribute{
+    padding-right: 0.6em;
+}
+
+h3.attribute:first-child , div.attribute:first-child , i:first-child {
+    margin-right: auto;
+}
+
+.summary-button .checkout_button {
+    padding: .7em;
+}
+
+.summary-button {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.order-summary {
+    padding: 9em;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+
+.biggestContainer{
+    height: 100%;
+}
+
+
+
+body{
+    height: unset !important;
+    min-height: 60em;
+}
+
+
