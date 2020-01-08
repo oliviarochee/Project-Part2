@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String email = request.getParameter("email");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         if (StringUtils.isStringEmpty(email) || StringUtils.isStringEmpty(password)) {

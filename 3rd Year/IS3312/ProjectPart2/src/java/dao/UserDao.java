@@ -8,8 +8,16 @@ package dao;
 
 
 import Models.User;
+import Utilities.DBManager;
 import Utilities.IConstants;
+import static com.sun.xml.ws.security.impl.policy.Constants.logger;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
+import java.util.logging.Level;
 
 /**
  *
@@ -17,34 +25,103 @@ import java.util.Vector;
  */
 public class UserDao {
     
-     public User getUserByEmail(String email) {
-        
-        //If admin - return admin else just normal user
-        //TODO - need to complete this
-        
-        if (email.equals("admin@admin.com")){
-            User user1 = new User(1,"admin@admin.com","admin","Eabha", "Murray",IConstants.USER_TYPE_ADMIN);
-            return user1;
-        } 
-        
-        User user2 = new User(1,"user@user.com","user","Kourtney", "Kardashian",IConstants.USER_TYPE_GENERAL_USER);
-        return user2;
+    public User getUserByEmail(String email) {
 
+        DBManager dmbgr = new DBManager();
+        Connection con = dmbgr.getConnection();
+        int userId = 0;
+        String password = null;
+        String fName = null;
+        String lName = null;
+        String userType = null;
+        User tempUser = new User();
+
+        String query = "SELECT * FROM USERDATA WHERE EMAIL=" + "'" + email + "'";
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                userId = (rs.getInt(1));
+                password = (rs.getString(3));
+                fName = (rs.getString(4));
+                lName = (rs.getString(5));
+                userType = (rs.getString(6));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        tempUser.setEmail(email);
+        tempUser.setId(userId);
+        tempUser.setFirstName(fName);
+        tempUser.setLastName(lName);
+        tempUser.setPassword(password);
+        tempUser.setUserType(userType);
+        return tempUser;
 
     }
 
     public Vector<User> getAllUsers() {
 
-
+        DBManager dmbgr = new DBManager();
+        Connection con = dmbgr.getConnection();
+        int userId = 0;
+        String password = null;
+        String email = null;
+        String fName = null;
+        String lName = null;
+        String userType = null;
         Vector<User> userData = new Vector();
-        User user1 = new User(1,"admin@admin.com","admin","Mary", "Murphy",IConstants.USER_TYPE_ADMIN);
-        userData.add(user1);
-        User user2 = new User(1,"user@user.com","admin","Terry", "Jones",IConstants.USER_TYPE_GENERAL_USER);
-        userData.add(user2);
-        return userData;
 
+        String query = "SELECT * FROM USERDATA";
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                userId = (rs.getInt(1));
+                email = (rs.getString(2));
+                password = (rs.getString(3));
+                fName = (rs.getString(4));
+                lName = (rs.getString(5));
+                userType = (rs.getString(6));
+                User tempUser = new User();
+                tempUser.setEmail(email);
+                tempUser.setId(userId);
+                tempUser.setFirstName(fName);
+                tempUser.setLastName(lName);
+                tempUser.setPassword(password);
+                tempUser.setUserType(userType);
+                userData.add(tempUser);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+      
+        return userData;
+        
+        
+
+    }
+    public void insertUser(User newUser){
+        
+        String stmtNewUser = "INSERT INTO USERDATA(EMAIL,PASSWORD,FNAME,LNAME,USERTYPE)\n VALUES('" + newUser.getEmail() + "', '" + newUser.getPassword() + "', '" + newUser.getFirstName() + "', '" + newUser.getLastName() + "','" + newUser.getUserType() + "')";
+        DBManager dmbgr = new DBManager();
+        Statement currentStatement = null;
+        Connection con = dmbgr.getConnection();
+        try {
+            // Execute statement
+            currentStatement = con.createStatement();
+            currentStatement.execute(stmtNewUser);
+        } catch (SQLException sqlExcept) {
+            logger.log(Level.SEVERE, null, sqlExcept);
+        }
+    }
+        
     }
 
     
     
-}
+

@@ -33,7 +33,11 @@ public class User {
     }
         
      
+public User(){
 
+
+
+}
     /**
      * @return the id
      */
