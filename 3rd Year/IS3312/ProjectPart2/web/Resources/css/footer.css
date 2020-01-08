@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Nov 2019, 17:47:47
+    Author     : oliviaroche
+*/
+
+footer{
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #F48FB1;
+  text-align: center;
+}
+.fa-facebook{
+  color:#3b5999;
+}
