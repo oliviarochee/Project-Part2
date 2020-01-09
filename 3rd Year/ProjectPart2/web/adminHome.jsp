@@ -68,7 +68,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">User Tasks</li>
-              <li class="active"><a href="/UserrManagementServlet?action=List">User Management</a></li>
+              <li class="active"><a href="UserManagement?action=List">User Management</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>

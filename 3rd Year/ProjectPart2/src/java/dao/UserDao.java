@@ -42,10 +42,10 @@ public class UserDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 userId = (rs.getInt(1));
-                password = (rs.getString(3));
-                fName = (rs.getString(4));
-                lName = (rs.getString(5));
-                userType = (rs.getString(6));
+                password = rs.getString(3);
+                fName = rs.getString(4);
+                lName = rs.getString(5);
+                userType = rs.getString(6);
             }
 
         } catch (SQLException e) {
@@ -79,15 +79,16 @@ public class UserDao {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                userId = (rs.getInt(1));
-                email = (rs.getString(2));
-                password = (rs.getString(3));
-                fName = (rs.getString(4));
-                lName = (rs.getString(5));
-                userType = (rs.getString(6));
+                userId = rs.getInt(1);
+                email = rs.getString(2);
+                password = rs.getString(3);
+                fName = rs.getString(4);
+                lName = rs.getString(5);
+                userType = rs.getString(6);
+                
                 User tempUser = new User();
-                tempUser.setEmail(email);
                 tempUser.setId(userId);
+                tempUser.setEmail(email);
                 tempUser.setFirstName(fName);
                 tempUser.setLastName(lName);
                 tempUser.setPassword(password);
@@ -101,8 +102,7 @@ public class UserDao {
 
       
         return userData;
-        
-        
+         
 
     }
     public void insertUser(User newUser){
@@ -119,8 +119,24 @@ public class UserDao {
             logger.log(Level.SEVERE, null, sqlExcept);
         }
     }
-        
+    public void deleteUser (String email){
+         String stmtDelete="DELETE FROM USERDATA WHERE EMAIL=" +"'" +email +"'";
+    DBManager dbmgr = new DBManager();
+    Connection conn = dbmgr.getConnection();
+  
+    try{
+    PreparedStatement ps= conn.prepareStatement(stmtDelete);
+    ps.executeUpdate();
+  
+    } catch (SQLException sqlExcept) {
+            logger.log(Level.SEVERE, null, sqlExcept);
+        }
+    
+    
     }
+    }
+        
+    
 
     
     

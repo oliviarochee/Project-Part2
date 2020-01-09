@@ -21,7 +21,7 @@ public interface IConstants {
    
     
     //Request Keys
-    public static final String REQUEST_KEY_ALL_USERS = "RKALLUSERS";
+    public static final String REQUEST_KEY_USERS = "RKALLUSERS";
     public static final String REQUEST_KEY_ALL_PRODUCTS = "RKALLPRODUCTS";
     
     

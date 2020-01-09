@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,14 +69,10 @@
 </head>
 <body>
 
+    <c:url var="deleteUrl" value="/UserManagement">
+        <c:param name="action" value="delete"/>
+    </c:url>
 
-
-<div class="card">
-  <img src="Resources/images/kylie.jpg"style="width:100%">
-  <h1>Kylie Jenner</h1>
-  <p>Chief Executive Officer (CEO)</p>
-  <p>  <a href=""><button class="add_cart_btn">Edit User</button></p>
-</div>
     <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -87,18 +84,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${RKALLUSERS}" var="tempuser">    
+                                <c:forEach items="${RKALLUSERS}" var="user">    
                                     <tr>
-                                        <td scope="row"><c:out value="${tempuser.getId()}"/></td>
-                                        <td>${tempuser.firstName}"</td>
-                                        <td>${tempuser.lastName}"</td>
-                                        <td>${tempuser.email}"</td>
-                                        <td><a> link to edit </a> </td>
+                                        <td scope="row"><c:out value="${user.getId()}"/></td>
+                                        <td>${user.firstName}</td>
+                                        <td>${user.lastName}</td>
+                                        <td>${user.email}</td>
+                                        <td><form action="${deleteUrl}" method="POST">
+                                            <input type="hidden" name="EMAIL" value="${user.email}"/>
+                                            <button type="submit">Delete</button>    
+                                            </form></td>
                                     </tr>
                                 </c:forEach>
 
                             </tbody>
+                            
                         </table>
+                                        
+                                        
 </body>
 
 
@@ -110,3 +113,5 @@
             <i class="fa fa-2x fas fa-envelope-square" aria-hidden="true"></i>
             <i class="fa fa-2x fas fa-address-book" aria-hidden="true"></i> 
         </footer>
+
+</html>

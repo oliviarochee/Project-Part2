@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author bemerson
  */
-public class UserrManagementServlet extends HttpServlet implements IConstants {
+public class UserManagementServlet extends HttpServlet implements IConstants {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,25 +32,41 @@ public class UserrManagementServlet extends HttpServlet implements IConstants {
         String action = request.getParameter("action");
         if (action.equals("List")){
             listUsers(request,response);
-        }
-        if (action.equals("addInit")){
+            
+        }else if (action.equals("addInit")){
             addInitUsers(request,response);
         }
-        if (action.equals("add")){
+        else if (action.equals("add")){
             addUser(request,response);
         }
+        else if (action.equals("delete")){
+            deleteUser(request,response);
+        }
+
         else {
         //RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
         //rd.forward(request, response);
         }
     }
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+  throws ServletException, IOException {
+     String email=request.getParameter("EMAIL");
+       UserDao userdao= new UserDao();
+       userdao.deleteUser(email);
+       Vector<User> allUser= userdao.getAllUsers();
+       request.setAttribute(IConstants.REQUEST_KEY_USERS, allUser);
+       
+       RequestDispatcher rd=request.getRequestDispatcher("/AdminChangeUser.jsp");
+       rd.forward(request, response);
+    
+    }
     
   private void listUsers(HttpServletRequest request, HttpServletResponse response)
   throws ServletException, IOException {
       UserDao userDAO = new UserDao();
-        Vector<User> allUsersVect = userDAO.getAllUsers();
+      Vector<User> allUsers = userDAO.getAllUsers();
 
-        request.setAttribute(IConstants.REQUEST_KEY_ALL_USERS, allUsersVect);
+        request.setAttribute(IConstants.REQUEST_KEY_USERS, allUsers);
 
         RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeUser.jsp");
         rd.forward(request, response);
@@ -84,7 +100,7 @@ public class UserrManagementServlet extends HttpServlet implements IConstants {
         
         Vector<User> allUsersVect = userDAO.getAllUsers();
 
-        request.setAttribute(IConstants.REQUEST_KEY_ALL_USERS, allUsersVect);
+        request.setAttribute(IConstants.REQUEST_KEY_USERS, allUsersVect);
 
         RequestDispatcher rd = request.getRequestDispatcher("/userManagement.jsp");
         rd.forward(request, response);

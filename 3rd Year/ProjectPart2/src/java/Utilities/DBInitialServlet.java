@@ -27,6 +27,19 @@ public class DBInitialServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+     @Override
+    public void init()
+            throws ServletException {
+        //DBManager mngr = new DBManager();
+        //mngr.checkConnection();
+
+        SetupDb sdb = new SetupDb();
+        sdb.createTables();
+        sdb.insertSetupData();; //To change body of generated methods, choose Tools | Templates.
+        sdb.showData();
+    }
+        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

@@ -89,7 +89,7 @@ public class ProductManagementServlet extends HttpServlet implements IConstants 
         
         Vector<LipProduct> allProductsVect = ProductDao.getAllProducts();
 
-        request.setAttribute(IConstants.REQUEST_KEY_ALL_USERS, allProductsVect);
+        request.setAttribute(IConstants.REQUEST_KEY_ALL_PRODUCTS, allProductsVect);
 
         RequestDispatcher rd = request.getRequestDispatcher("/userManagement.jsp");
         rd.forward(request, response);
