@@ -52,7 +52,7 @@ public class UserrManagementServlet extends HttpServlet implements IConstants {
 
         request.setAttribute(IConstants.REQUEST_KEY_ALL_USERS, allUsersVect);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/userManagement.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeUser.jsp");
         rd.forward(request, response);
   }
   

@@ -58,6 +58,7 @@
 
                         </div>
                     </div>
+                            
                     <p>Charlotte Tilbury High Gloss (Nude)<br><b>$18.99</b></p>
                 </div>
 

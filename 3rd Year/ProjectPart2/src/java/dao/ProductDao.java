@@ -91,7 +91,7 @@ public class ProductDao {
                 Image = (rs.getString(5));
                 Description = (rs.getString(6));
                 Color = (rs.getString(6));
-                UnitCost = (rs.getString(6));
+                UnitCost = (rs.getString(7));
                 LipProduct tempProduct = new LipProduct();
                 tempProduct.setCode(Code);
                 tempProduct.setProductID(ProductID);
@@ -121,12 +121,52 @@ public class ProductDao {
         Statement currentStatement = null;
         Connection con = dmbgr.getConnection();
         try {
-            // Execute statement
+           
             currentStatement = con.createStatement();
             currentStatement.execute(stmtNewProduct);
         } catch (SQLException sqlExcept) {
             logger.log(Level.SEVERE, null, sqlExcept);
         }
+    }
+    
+    public void deleteProduct(String code){
+    
+    String stmtDelete="DELETE FROM PRODUCT WHERE CODE=" +"'" +code +"'";
+    DBManager dbmgr = new DBManager();
+    Connection conn = dbmgr.getConnection();
+    try{
+    PreparedStatement ps= conn.prepareStatement(stmtDelete);
+    ps.executeQuery();
+  
+    } catch (SQLException sqlExcept) {
+            logger.log(Level.SEVERE, null, sqlExcept);
+        }
+    
+    
+    }
+    
+    public void updateProduct(LipProduct p){
+    DBManager dbmgr =new DBManager();
+    Connection conn=dbmgr.getConnection();
+    String sql="UPDATE PRODUCTS SET NAME =?, TYPE=?, IMAGE=?, DESCRIPTION=?, COLOR=?, UNITCOST=? WHERE CODE=?";
+    try{
+        
+    PreparedStatement ps=conn.prepareStatement(sql);
+    
+    ps.setString(1, p.getName());
+    ps.setString(2,p.getType());
+    ps.setString(3, p.getImage());    
+    ps.setString(4, p.getDescription());
+    ps.setString(5, p.getColor());
+    ps.setString(6, p.getUnitcost());
+    ps.setString(7, p.getCode());
+    ps.executeUpdate();
+    
+
+    }catch (SQLException sqlExcept) {
+            logger.log(Level.SEVERE, null, sqlExcept);
+        }
+    
     }
         
     }

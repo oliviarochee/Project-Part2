@@ -94,6 +94,52 @@ public class ProductManagementServlet extends HttpServlet implements IConstants 
         RequestDispatcher rd = request.getRequestDispatcher("/userManagement.jsp");
         rd.forward(request, response);
   }
+  
+  
+   private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+       String code=request.getParameter("CODE");
+       ProductDao productdao= new ProductDao();
+       productdao.deleteProduct(code);
+       Vector<LipProduct> allProducts= productdao.getAllProducts();
+       request.setAttribute(IConstants.REQUEST_KEY_ALL_PRODUCTS, allProducts);
+       
+       RequestDispatcher rd=request.getRequestDispatcher("/");
+       rd.forward(request, response);
+       
+   }
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+       String code=request.getParameter("CODE");
+       String name =request.getParameter("NAME");
+       String type= request.getParameter("TYPE");
+       String image=request.getParameter("IMAGE");
+       String desc =request.getParameter("DESCRIPTION");
+       String colour =request.getParameter("COLOUR");
+       String cost=request.getParameter("UNITCOST");
+       
+            
+       
+       LipProduct updateProd=new LipProduct();
+       updateProd.setCode(code);
+       updateProd.setName(name);
+       updateProd.setType(type);
+       updateProd.setImage(image);
+       updateProd.setDescription(desc);
+       updateProd.setColor(colour);
+       updateProd.setUnitcost(cost);
+       
+       ProductDao pdao=new ProductDao();
+       pdao.updateProduct(updateProd);
+       
+       Vector<LipProduct> allProduct=pdao.getAllProducts();
+       request.setAttribute(IConstants.REQUEST_KEY_ALL_PRODUCTS, allProduct);
+       
+       RequestDispatcher rd= request.getRequestDispatcher("/");
+       rd.forward(request, response);
+       
+   }
+  
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 /**
