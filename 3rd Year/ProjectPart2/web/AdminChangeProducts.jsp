@@ -5,10 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-     <head> 
+    
         <title>Kiss | Homepage</title>
         <link rel="stylesheet" href="Resources/css/basics.css">
         <link rel="stylesheet" href="Resources/css/footer.css">
@@ -18,23 +19,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    </head>
-    
-     <body> 
-        <div class="biggestContainer">
-            <div class="powderblue">
-                <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
-                <ul>
-                    <li><a href="shop.jsp">Products</a></li>
-                    <li><a href="contact.jsp">Contact Us</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                    <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-
-    
-    
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -65,18 +49,66 @@
   opacity: 0.7;
 }
 </style>
-</head>
-<body>
+    </head>
+    
+     <body> 
+        <div class="biggestContainer">
+            <div class="powderblue">
+                <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
+                <ul>
+                    <li><a href="shop.jsp">Products</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
+                    <li><a href="login.jsp">Login</a></li>
+                    <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+
+    
+    
 
 
 
-<div class="card">
-  <img src="Resources/products/product1.png"style="width:100%">
-  <h1>Charlotte Tilbury Matte Longwear Lipstick</h1>
-  <p class="price">$19.99</p>
-  <p>Enriched with a breakthrough secret ingredient, this anti oxidant naturally protects the lips from UV damage and external pollution, leaving them cashmere soft. Our matte longwear formula ensures your lippie will stay in place all night, leaving a lasting impression!</p>
-  <p>  <a href=""><button class="add_cart_btn">Edit Product</button></p>
-</div>
+
+
+<c:url var="deleteUrl" value="/ProductManagementServlet">
+        <c:param name="action" value="delete"/>
+    </c:url>
+
+    <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Color</th>
+                                    <th>Unitcost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${RKALLPRODUCTS}" var="product">    
+                                    <tr>
+                                        <td scope="row"><c:out value="${product.getId()}"/></td>
+                                        <td>${product.Code}</td>
+                                        <td>${product.Name}</td>
+                                        <td>${product.Type}</td>
+                                        <td>${product.Description}</td>
+                                        <td>${product.Color}</td>
+                                        <td>${product.Unitcost}</td>
+                                        
+                                        <td><form action="${deleteUrl}" method="POST">
+                                            <input type="hidden" name="CODE" value="${product.code}"/>
+                                            <button type="submit">Delete</button>    
+                                            </form></td>
+                                    </tr>
+                                </c:forEach>
+
+                            </tbody>
+                            
+                        </table>
+                                        
+                                        
     
 </body>
 
@@ -89,3 +121,4 @@
             <i class="fa fa-2x fas fa-envelope-square" aria-hidden="true"></i>
             <i class="fa fa-2x fas fa-address-book" aria-hidden="true"></i> 
         </footer>
+</html>

@@ -16,9 +16,53 @@ VALUES('user4@user.com', 'mypassword', 'General4', 'User','GENUSER');
 
 
 
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES(LP01', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Gloss Finish, 'Nude','17.90');
 
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LPO2', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Matte finish', 'Red','17.90');
 
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP03', 'Charlotte Tilbury', 'LipLiner', 'Resources/products/lipliner3.png','Matte Finish', 'Red','16.99');
 
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP04', 'HUDA Beauty Strobe Gloss', 'LipGloss', 'Resources/products/lipgloss6.png','Strobe Gloss with high finish', 'Peach Shimmer','20.00');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP05', 'NARS Shimmer Gloss', 'LipGloss', 'Resources/products/lipgloss5.png','Shimmery Gloss', 'Baby Pink','17.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP06', 'Charlotte Tilbury', 'Lipstsick', 'Resources/products/product2.png','Matte Finish', 'Wine','19.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP07', 'NARS', 'Lipstick', 'Resources/products/product6.png','All Nighter lipstick', 'Peach','16.99');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP08', 'HUDA Beauty Velvet Teddy Lipstick', 'Lipstick', 'Resources/products/product7.png','Satin Finish', 'Pink','19.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP09', 'Charlotte Tilbury', 'LipLiner', 'Resources/products/lipliner3.png','Long Lasting', 'Red','17.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP10', 'NARS', 'LipLiner', 'Resources/products/lipliner7.png','Double Line Liner', 'Red','17.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP11', 'Charlotte Tilbury', 'Lipstick, 'Resources/products/product3.png','Satin Finish', 'Red','16.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP12', 'Charlotte Tilbury', 'LipLiner', 'Resources/products/lipliner4.png','Double Wear Lipliner', 'Chocolate','16.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP13', 'HUDA Beauty Double the danger lip plumper', 'LipGloss', 'Resources/products/lipgloss6.png','Extra shimmer and extra plump, what is not to love?', 'Nude Shimmer','17.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP14', 'Charlotte Tilbury', 'LipStick', 'Resources/products/lipgloss3.png','Matte Finish Longwear Lipstick', 'Fuschia','11.90');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP15', 'NARS Satin Finish', 'Lipstick', 'Resources/products/product6.png','Velvet Satin finish - extra hydrating.', 'Nude','17.00');
+
+INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
+VALUES('LP16', 'HUDA Beauty', 'Lipliner', 'Resources/products/lipliner6.png','Satin Finish LipLiner', 'Dark Pink','20.50');
 
 
 
