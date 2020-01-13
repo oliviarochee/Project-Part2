@@ -105,6 +105,50 @@ public class UserDao {
          
 
     }
+    
+    
+    
+
+   public User getUserById(String id) {
+
+       DBManager dmbgr = new DBManager();
+       Connection con = dmbgr.getConnection();
+       int userId = 0;
+       String password = null;
+       String email = null;
+       String fName = null;
+       String lName = null;
+       String userType = null;
+       User tempUser = new User();
+
+       String query = "SELECT * FROM USERDATA WHERE User_ID = ?";
+       try {
+           PreparedStatement stmt = con.prepareStatement(query);
+           stmt.setString(1, id);
+           ResultSet rs = stmt.executeQuery();
+           while (rs.next()) {
+               userId = (rs.getInt(1));
+               email = (rs.getString(2));
+               password = (rs.getString(3));
+               fName = (rs.getString(4));
+               lName = (rs.getString(5));
+               userType = (rs.getString(6));
+
+               tempUser.setEmail(email);
+               tempUser.setId(userId);
+               tempUser.setFirstName(fName);
+               tempUser.setLastName(lName);
+               tempUser.setPassword(password);
+               tempUser.setUserType(userType);
+           }
+
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+
+
+       return tempUser;
+   }
     public void insertUser(User newUser){
         
         String stmtNewUser = "INSERT INTO USERDATA(EMAIL,PASSWORD,FNAME,LNAME,USERTYPE)\n VALUES('" + newUser.getEmail() + "', '" + newUser.getPassword() + "', '" + newUser.getFirstName() + "', '" + newUser.getLastName() + "','" + newUser.getUserType() + "')";
@@ -119,6 +163,28 @@ public class UserDao {
             logger.log(Level.SEVERE, null, sqlExcept);
         }
     }
+     public String updateUser(String id, String fname, String lname, String email){
+       String result = "";
+       DBManager dbmgr = new DBManager();
+       Connection con = dbmgr.getConnection();
+
+       String query = "UPDATE USERDATA SET FNAME = ?, LNAME = ?, EMAIL = ? WHERE USER_ID = ?";
+
+        result += query + " \n";
+
+       try{
+           PreparedStatement stmt = con.prepareStatement(query);
+           stmt.setString(1, fname);
+           stmt.setString(2, lname);
+           stmt.setString(3, email);
+           stmt.setString(4, id);
+           stmt.executeUpdate();
+
+       } catch (SQLException e) {
+           result += (e.toString());
+       }
+       return result;
+   }
     public void deleteUser (String email){
          String stmtDelete="DELETE FROM USERDATA WHERE EMAIL=" +"'" +email +"'";
     DBManager dbmgr = new DBManager();

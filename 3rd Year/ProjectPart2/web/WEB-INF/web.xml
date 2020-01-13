@@ -3,7 +3,7 @@
     <servlet>
         <servlet-name>DBInitialServlet</servlet-name>
         <servlet-class>Utilities.DBInitialServlet</servlet-class>
-         <load-on-startup>1</load-on-startup>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -16,6 +16,10 @@
     <servlet>
         <servlet-name>UserManagementServlet</servlet-name>
         <servlet-class>Servlet.UserManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>Servlet.CartServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DBInitialServlet</servlet-name>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>UserManagementServlet</servlet-name>
         <url-pattern>/UserManagement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/Cart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

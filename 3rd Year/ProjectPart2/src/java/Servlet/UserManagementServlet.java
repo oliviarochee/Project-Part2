@@ -30,57 +30,84 @@ public class UserManagementServlet extends HttpServlet implements IConstants {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        if (action.equals("List")){
-            listUsers(request,response);
-            
-        }else if (action.equals("addInit")){
-            addInitUsers(request,response);
-        }
-        else if (action.equals("add")){
-            addUser(request,response);
-        }
-        else if (action.equals("delete")){
-            deleteUser(request,response);
+        if (action.equals("List")) {
+            listUsers(request, response);
+
+        } else if (action.equals("addInit")) {
+            addInitUsers(request, response);
+        } else if (action.equals("add")) {
+            addUser(request, response);
+        } else if (action.equals("delete")) {
+            deleteUser(request, response);
         }
 
-        else {
-        //RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-        //rd.forward(request, response);
+        if (action.equals("updateUserRedirect")) {
+            updateUserRedirect(request, response);
+        }
+        if (action.equals("updateUserConfirm")) {
+            updateUserConfirm(request, response);
         }
     }
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
-  throws ServletException, IOException {
-     String email=request.getParameter("EMAIL");
-       UserDao userdao= new UserDao();
-       userdao.deleteUser(email);
-       Vector<User> allUser= userdao.getAllUsers();
-       request.setAttribute(IConstants.REQUEST_KEY_USERS, allUser);
-       
-       RequestDispatcher rd=request.getRequestDispatcher("/AdminChangeUser.jsp");
-       rd.forward(request, response);
-    
+
+    void updateUserRedirect(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("/update-user.jsp");
+        String id = request.getParameter("id");
+        UserDao userDAO = new UserDao();
+        User user = userDAO.getUserById(id);
+        //request.getSession(true).setAttribute("UPDATE_USER", user);
+        request.getSession(true).setAttribute("UPDATE_USER_ID", user.getId());
+        request.getSession(true).setAttribute("UPDATE_USER_FNAME", user.getFirstName());
+        request.getSession(true).setAttribute("UPDATE_USER_LNAME", user.getLastName());
+        request.getSession(true).setAttribute("UPDATE_USER_EMAIL", user.getEmail());
+        rd.forward(request, response);
     }
-    
-  private void listUsers(HttpServletRequest request, HttpServletResponse response)
-  throws ServletException, IOException {
-      UserDao userDAO = new UserDao();
-      Vector<User> allUsers = userDAO.getAllUsers();
+
+    void updateUserConfirm(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String id = request.getParameter("id");
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String email = request.getParameter("email");
+        UserDao userDAO = new UserDao();
+
+        userDAO.updateUser(id, fname, lname, email);
+        listUsers(request, response);
+    }
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("EMAIL");
+        UserDao userDAO = new UserDao();
+        userDAO.deleteUser(email);
+        Vector<User> allUser = userDAO.getAllUsers();
+        request.setAttribute(IConstants.REQUEST_KEY_USERS, allUser);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeUser.jsp");
+        rd.forward(request, response);
+
+    }
+
+    private void listUsers(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        UserDao userDAO = new UserDao();
+        Vector<User> allUsers = userDAO.getAllUsers();
 
         request.setAttribute(IConstants.REQUEST_KEY_USERS, allUsers);
 
         RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeUser.jsp");
         rd.forward(request, response);
-  }
-  
-  private void addInitUsers(HttpServletRequest request, HttpServletResponse response)
-  throws ServletException, IOException {
+    }
+
+    private void addInitUsers(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         RequestDispatcher rd = request.getRequestDispatcher("/addUser.jsp");
         rd.forward(request, response);
-  }
-  
-  private void addUser(HttpServletRequest request, HttpServletResponse response)
-  throws ServletException, IOException {
+    }
+
+    private void addUser(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         String email = request.getParameter("EMAIL");
         User newUser = new User();
@@ -93,30 +120,30 @@ public class UserManagementServlet extends HttpServlet implements IConstants {
         newUser.setLastName(lName);
         String userType = request.getParameter("USERTYPE");
         newUser.setUserType(userType);
-      
+
         UserDao userDAO = new UserDao();
-        
+
         userDAO.insertUser(newUser);
-        
+
         Vector<User> allUsersVect = userDAO.getAllUsers();
 
         request.setAttribute(IConstants.REQUEST_KEY_USERS, allUsersVect);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/userManagement.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeUser.jsp");
         rd.forward(request, response);
-  }
+    }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -130,7 +157,7 @@ public class UserManagementServlet extends HttpServlet implements IConstants {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -141,9 +168,8 @@ public class UserManagementServlet extends HttpServlet implements IConstants {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
 }
-

@@ -67,6 +67,8 @@ public class ProductDao {
     
       public Vector<LipProduct> getAllProducts() {
 
+          System.out.println("getting all products");
+          
         DBManager dmbgr = new DBManager();
         Connection con = dmbgr.getConnection();
         int ProductID = 0;
@@ -90,8 +92,8 @@ public class ProductDao {
                 Type = (rs.getString(4));
                 Image = (rs.getString(5));
                 Description = (rs.getString(6));
-                Color = (rs.getString(6));
-                UnitCost = (rs.getString(7));
+                Color = (rs.getString(7));
+                UnitCost = (rs.getString(8));
                 LipProduct tempProduct = new LipProduct();
                 tempProduct.setCode(Code);
                 tempProduct.setProductID(ProductID);
@@ -116,14 +118,14 @@ public class ProductDao {
     }
     public void insertProduct(LipProduct newProduct){
         
-        String stmtNewProduct = "INSERT INTO PRODUCT(CODE,NAME,TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)\n VALUES('" + newProduct.getCode() + "', '" + newProduct.getName() + "', '" + newProduct.getType() + "', '" + newProduct.getImage() + "','" + newProduct.getDescription() + "')" + newProduct.getColor() + "')" + newProduct.getUnitcost() + "')";
+        String stmtNewProduct = "INSERT INTO PRODUCT(CODE, NAME, TYPE, IMAGE, DESCRIPTION, COLOR, UNITCOST) VALUES('" + newProduct.getCode() + "', '" + newProduct.getName() + "', '" + newProduct.getType() + "', '" + newProduct.getImage() + "','" + newProduct.getDescription() + "','" + newProduct.getColor() + "','" + newProduct.getUnitcost() + "')";
         DBManager dmbgr = new DBManager();
         Statement currentStatement = null;
         Connection con = dmbgr.getConnection();
         try {
            
             currentStatement = con.createStatement();
-            currentStatement.execute(stmtNewProduct);
+            currentStatement.executeUpdate(stmtNewProduct);
         } catch (SQLException sqlExcept) {
             logger.log(Level.SEVERE, null, sqlExcept);
         }
@@ -131,12 +133,13 @@ public class ProductDao {
     
     public void deleteProduct(String code){
     
-    String stmtDelete="DELETE FROM PRODUCT WHERE CODE=" +"'" +code +"'";
+        System.out.println("Code: " + code);
+    String stmtDelete="DELETE FROM PRODUCT WHERE CODE='" + code + "'";
     DBManager dbmgr = new DBManager();
     Connection conn = dbmgr.getConnection();
     try{
     PreparedStatement ps= conn.prepareStatement(stmtDelete);
-    ps.executeQuery();
+    ps.executeUpdate();
   
     } catch (SQLException sqlExcept) {
             logger.log(Level.SEVERE, null, sqlExcept);

@@ -6,7 +6,7 @@
 --%>
 <%@page import="Models.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,7 +50,9 @@
                             <% User user = (User)session.getAttribute("SKUSER"); %> 
                             <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                              <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP02" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -69,7 +71,9 @@
                         <div class="w3-display-middle w3-display-hover"> 
                             <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                            <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP02" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -87,7 +91,9 @@
                         <div class="w3-display-middle w3-display-hover">
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP03" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -103,7 +109,9 @@
                         <div class="w3-display-middle w3-display-hover">
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP04" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -120,7 +128,9 @@
                         <div class="w3-display-middle w3-display-hover">
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP05" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -136,7 +146,9 @@
                             <!--                                <span class="w3-tag w3-display-topleft">Sale</span>-->
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP06" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -154,7 +166,9 @@
                         <div class="w3-display-middle w3-display-hover">
                            <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP07" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -170,7 +184,9 @@
                         <div class="w3-display-middle w3-display-hover">
                             <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP08" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -193,7 +209,9 @@
                         <div class="w3-display-middle w3-display-hover">
                             <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                                <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP09" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -208,7 +226,9 @@
                         <div class="w3-display-middle w3-display-hover">
                           <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                                <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP10" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -226,7 +246,9 @@
                         <div class="w3-display-middle w3-display-hover">
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP11" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -242,7 +264,9 @@
                         <div class="w3-display-middle w3-display-hover">
                             <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP12" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -259,7 +283,9 @@
                         <div class="w3-display-middle w3-display-hover">
                           <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP13" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -275,7 +301,9 @@
                             <!--                                <span class="w3-tag w3-display-topleft">Sale</span>-->
                      <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                              <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP14" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -293,7 +321,9 @@
                         <div class="w3-display-middle w3-display-hover">
                            <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP15" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>
@@ -309,7 +339,9 @@
                         <div class="w3-display-middle w3-display-hover">
                              <%   if (user != null) { %>
                             <a href="ProductZoom.jsp"><button class="view_product_btn">View Product</button></a><br>
-                                <a href="Cart.jsp"><button class="add_cart_btn">Add To Cart<i class="fa fa-shopping-cart"></i></button></a>
+                               <form action="Cart?action=cart" method="POST">
+                                <input type="hidden" value="LP16" name="CODE">
+                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>
                                <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
                             <% } %>

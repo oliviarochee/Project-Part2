@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ProductZoom
-    Created on : 19 Nov 2019, 13:09:35
-    Author     : oliviaroche
---%>
 <%@page import="Models.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -19,39 +14,31 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <div class="powderblue">
-            <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
-            <ul>
-                <li><a href="shop.jsp">Products</a></li>
-                <li><a href="contact.jsp">Contact Us</a></li>
-                <li><a href="login.jsp">Login</a></li>
-                <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
-
+          <div class="biggestContainer">
+            <div class="powderblue">
+                <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
+                <ul>
+                    <li class="active"><a href="adminHome.jsp">Home</a></li>
+                     <li><a href="UserManagement?action=List"> User Management</a></li>
+                   <li><a href="ProductManagementServlet?action=List">Product Management</a></li>
+                     <li><a href="index.html">Logout</a></li>
+                    <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
 
                 <div class="w3-container">
                     <div class="w3-display-container">
-                        <img src="Resources/products/lipgloss1.png" style="width:50%">
+                        <img src="https://i.stack.imgur.com/cVOK9.jpg" style="width:50%">
 
                         <span class="w3-tag w3-display-topleft">New</span>
                         <div class="w3-display-middle w3-display-hover">
                             
-                            <% User user = (User)session.getAttribute("SKUSER"); %> 
-                            <%   if (user != null) { %>
-   
-                                 <form action="Cart?action=cart" method="POST">
-                                <input type="hidden" value="LP01" name="CODE">
-                                <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
-                            <% } else { %>
-                               <a href="login.jsp"><button class="view_product_btn"> Buy now <i class="fa fa-shopping-cart"></i></button></a>
-                            <% } %>
-                            
+                           
 
                         </div>
                     </div>
                             
-                    <p>Charlotte Tilbury High Gloss (Nude)<br><b>$18.99</b></p>
+                    <p>Activity Levels on 21/01/2020</p>
                 </div>
 
   

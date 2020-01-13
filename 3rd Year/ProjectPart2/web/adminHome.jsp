@@ -2,14 +2,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <head> 
+       <head> 
+        <title>Kiss | AdminHomepage</title>
+        <link rel="stylesheet" href="Resources/css/basics.css">
+        <link rel="stylesheet" href="Resources/css/footer.css">
+        <link rel="stylesheet" href="Resources/css/nav.css">
+        <link rel = "stylesheet" href="Resources/css/homepage.css" type="text/css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    </head>
+
+    <body> 
+        <div class="biggestContainer">
+            <div class="powderblue">
+                <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
+                <ul>
+                     <li class="active"><a href="adminHome.jsp">Home</a></li>
+                    <li><a href="UserManagement?action=List"> User Management</a></li>
+                    <li><a href="ProductManagementServlet?action=List">Product Management</a></li>
+                    <li><a href="Activity.jsp">Activity</a></li>
+                       <li><a href="Stock.jsp">Stock</a></li>
+                     <li><a href="index.html">Logout</a></li>
+                    <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            
+            
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -39,97 +62,33 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">User Tasks</li>
-              <li class="active"><a href="UserManagement?action=List">User Management</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Product Tasks</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Test Stuff</li>
-              <li><a href="/BootStrapLogin/TestPage">Test Page 1</a></li>
-
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+  
           <div class="hero-unit">
             <h1>Admin's Home Page</h1>
-            <p>This is where admin users are going to do their stuff</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <p>Please do not forget to log out!</p>
           </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Great Stuff</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>More Great Stuff</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Even better stuff</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
+          
+      
+        <div class="w3-content w3-section" style="max-width:500px">
+                <img class="mySlides w3-animate-top" src="https://www.temptalia.com/wp-content/uploads/2017/06/huda-beauty_snobby_001_product-760x625.jpg" style="width:100%">
+                <img class="mySlides w3-animate-bottom" src="https://www.ogerio.com/wp-content/uploads/2018/01/4.VIDEO-STAR-1.jpg" style="width:100%">
+                <img class="mySlides w3-animate-top" src="https://images-na.ssl-images-amazon.com/images/I/51a3dNMm68L._SY355_.jpg" style="width:100%">
+                <img class="mySlides w3-animate-bottom" src="https://www.narscosmetics.co.uk/dw/image/v2/BCMQ_PRD/on/demandware.static/-/Sites-itemmaster_NARS/default/dw427bd544/hi-res/0607845010081.jpg?sw=856&sh=750&sm=fit" style="width:100%">
+            </div>
 
-      <hr>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+        </div>
 
+
+       <footer>
+            <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-2x fab fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-2x fab fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-2x fas fa-envelope-square" aria-hidden="true"></i>
+            <i class="fa fa-2x fas fa-address-book" aria-hidden="true"></i> 
+        </footer>
     </div>
 
 

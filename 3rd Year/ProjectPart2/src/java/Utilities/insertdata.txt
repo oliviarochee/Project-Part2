@@ -17,10 +17,10 @@ VALUES('user4@user.com', 'mypassword', 'General4', 'User','GENUSER');
 
 
 INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
-VALUES(LP01', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Gloss Finish, 'Nude','17.90');
+VALUES('LP01', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Gloss Finish, 'Nude','17.90');
 
 INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
-VALUES('LPO2', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Matte finish', 'Red','17.90');
+VALUES('LP02', 'Charlotte Tilbury', 'LipGloss', 'Resources/products/lipgloss2.png','Matte finish', 'Red','17.90');
 
 INSERT INTO PRODUCT (CODE,NAME, TYPE,IMAGE,DESCRIPTION, COLOR, UNITCOST)
 VALUES('LP03', 'Charlotte Tilbury', 'LipLiner', 'Resources/products/lipliner3.png','Matte Finish', 'Red','16.99');
