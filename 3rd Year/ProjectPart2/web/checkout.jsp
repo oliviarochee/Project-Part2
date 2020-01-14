@@ -207,7 +207,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <center><p><a class="btn btn-lg btn-secondary" href=index.html>Confirm Purchase</a></p></center>
+        <center><p><a class="btn btn-lg btn-secondary" href=thankyou.jsp>Confirm Purchase</a></p></center>
       </form>
     </div>
   </div>

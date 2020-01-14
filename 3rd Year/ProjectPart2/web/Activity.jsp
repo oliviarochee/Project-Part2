@@ -30,7 +30,7 @@
                     <div class="w3-display-container">
                         <img src="https://i.stack.imgur.com/cVOK9.jpg" style="width:50%">
 
-                        <span class="w3-tag w3-display-topleft">New</span>
+                        
                         <div class="w3-display-middle w3-display-hover">
                             
                            
