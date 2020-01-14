@@ -26,10 +26,12 @@
         <div class="biggestContainer">
             <div class="powderblue">
                 <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
-                <ul>
-                    <li class="active"><a href="adminHome.jsp">Home</a></li>
-                     <li><a href="UserManagement?action=List"> User Management</a></li>
-                   <li><a href="ProductManagementServlet?action=List">Product Management</a></li>
+               <ul>
+                     <li class="active"><a href="adminHome.jsp">Home</a></li>
+                    <li><a href="UserManagement?action=List"> User Management</a></li>
+                    <li><a href="ProductManagementServlet?action=List">Product Management</a></li>
+                    <li><a href="Activity.jsp">Activity</a></li>
+                       <li><a href="Stock.jsp">Stock</a></li>
                      <li><a href="index.html">Logout</a></li>
                     <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
                 </ul>

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html> 
-    <head> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+ 
         <title>Kiss | Homepage</title>
         <link rel="stylesheet" href="Resources/css/basics.css">
         <link rel="stylesheet" href="Resources/css/footer.css">
@@ -31,24 +27,26 @@ and open the template in the editor.
                 </ul>
             </div>
 
-            <div class="w3-content w3-section" style="max-width:500px">
-                <img class="mySlides w3-animate-top" src="https://www.temptalia.com/wp-content/uploads/2017/06/huda-beauty_snobby_001_product-760x625.jpg" style="width:100%">
-                <img class="mySlides w3-animate-bottom" src="https://www.ogerio.com/wp-content/uploads/2018/01/4.VIDEO-STAR-1.jpg" style="width:100%">
-                <img class="mySlides w3-animate-top" src="https://images-na.ssl-images-amazon.com/images/I/51a3dNMm68L._SY355_.jpg" style="width:100%">
-                <img class="mySlides w3-animate-bottom" src="https://www.narscosmetics.co.uk/dw/image/v2/BCMQ_PRD/on/demandware.static/-/Sites-itemmaster_NARS/default/dw427bd544/hi-res/0607845010081.jpg?sw=856&sh=750&sm=fit" style="width:100%">
-            </div>
+<title>Select Language</title>
+</head>
+<body>
+<h1>Please select language:</h1>
 
+ 
+  <c:url value="application.jsp" var="frenchURL">
+     <c:param name="locale" value="fr_FR"/>
+  </c:url>
 
-        </div>
-
-        <footer>
+  <a href="${frenchURL}"> 
+       <img src="https://media.giphy.com/media/ErPDvrEYZYNOM/giphy.gif" height="50" width="50"/>
+  </a>
+</body>
+   <footer>
             <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
             <i class="fa fa-2x fab fa-instagram" aria-hidden="true"></i>
             <i class="fa fa-2x fab fa-twitter" aria-hidden="true"></i>
             <i class="fa fa-2x fas fa-envelope-square" aria-hidden="true"></i>
             <i class="fa fa-2x fas fa-address-book" aria-hidden="true"></i> 
         </footer>
+</html> 
 
-        <script src="Resources/js/slides/slidesAuto.js"></script>
-    </body>
-</html>

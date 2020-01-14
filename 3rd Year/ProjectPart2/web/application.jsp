@@ -1,3 +1,8 @@
+
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -5,8 +10,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html> 
+    <c:set var="loc" value="en_US"/>
+<c:if test="${!(empty param.locale)}">
+    <c:set var="loc" value="${param.locale}"/>
+</c:if>
+<fmt:setLocale value="${loc}" />
+
+<fmt:bundle basename="app">
+ 
     <head> 
-        <title>Kiss | Homepage</title>
+               <title><fmt:message key="Home"/></title>
         <link rel="stylesheet" href="Resources/css/basics.css">
         <link rel="stylesheet" href="Resources/css/footer.css">
         <link rel="stylesheet" href="Resources/css/nav.css">
@@ -22,15 +35,15 @@ and open the template in the editor.
         <div class="biggestContainer">
             <div class="powderblue">
                 <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
+            <form action="${formActionURL}" method="post">
                 <ul>
-                    <li><a href="shop.jsp">Products</a></li>
-                    <li><a href="contact.jsp">Contact Us</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                     <li><a href="index1.jsp">Language</a></li>
+                    <li><a href="shop.jsp"><fmt:message key="products"/></a></li>
+                    <li><a href="contact.jsp"><fmt:message key="contacts"/></a></li>
+                    <li><a href="login.jsp"><fmt:message key="login"/></a></li>
                     <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
-
+</form>
             <div class="w3-content w3-section" style="max-width:500px">
                 <img class="mySlides w3-animate-top" src="https://www.temptalia.com/wp-content/uploads/2017/06/huda-beauty_snobby_001_product-760x625.jpg" style="width:100%">
                 <img class="mySlides w3-animate-bottom" src="https://www.ogerio.com/wp-content/uploads/2018/01/4.VIDEO-STAR-1.jpg" style="width:100%">
@@ -51,4 +64,5 @@ and open the template in the editor.
 
         <script src="Resources/js/slides/slidesAuto.js"></script>
     </body>
+    </fmt:bundle>
 </html>
