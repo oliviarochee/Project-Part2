@@ -49,7 +49,7 @@
      
                    <form action="<c:url value='/UserManagement?action=updateUserConfirm'/>" method = "POST">
                        <div>
-                           <h2> <%= session.getAttribute("UPDATE_USER_ID")%>Update User ID</h2>
+                           <h2>Update User ID</h2>
                            <input type="hidden" name="id" value="<%= session.getAttribute("UPDATE_USER_ID")%>">
                        </div>
                        <div>

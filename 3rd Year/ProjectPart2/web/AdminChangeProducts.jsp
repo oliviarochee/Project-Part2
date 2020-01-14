@@ -103,7 +103,11 @@
                                     <input type="hidden" name="CODE" value="${product.code}"/>
                                     <button type="submit">Delete</button>    
                                 </form></td>
-                            <td><a class="btn btn-primary" href="<c:url value='/ProductManagementServlet?action=updateUserRedirect&id=${product.getProductID()}'/>" role="button">Update</a></td>
+                            <td><form action="/ProjectPart2/ProductManagementServlet?action=updateProductRedirect" method="POST">
+
+                                    <input type="hidden" name="CODE" value="${product.code}"/>
+                                    <button type="submit">Update</button>    
+                                </form></td>
 
                         </tr>
                     </c:forEach>

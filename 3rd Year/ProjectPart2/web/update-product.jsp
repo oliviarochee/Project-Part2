@@ -8,49 +8,33 @@
 <%@page import="java.util.Vector"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-       <meta charset="utf-8">
-       <title>Bootstrap, from Twitter</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <meta name="description" content="">
-       <meta name="author" content="">
+<html>
+    
+    <head> 
+        <title>Kiss | Update product</title>
+        <link rel="stylesheet" href="Resources/css/basics.css">
+        <link rel="stylesheet" href="Resources/css/footer.css">
+        <link rel="stylesheet" href="Resources/css/nav.css">
+        <link rel = "stylesheet" href="Resources/css/homepage.css" type="text/css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-       <!-- Le styles -->
-       <link href="css/bootstrap.css" rel="stylesheet">
-       <style type="text/css">
-           body {
-               padding-top: 60px;
-               padding-bottom: 40px;
-           }
-           .sidebar-nav {
-               padding: 9px 0;
-           }
+    </head>
 
-           @media (max-width: 980px) {
-               /* Enable use of floated navbar text */
-               .navbar-text.pull-right {
-                   float: none;
-                   padding-left: 5px;
-                   padding-right: 5px;
-               }
-           }
-       </style>
-       <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
-       <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-       <!--[if lt IE 9]>
-         <script src="../assets/js/html5shiv.js"></script>
-       <![endif]-->
-
-       <!-- Fav and touch icons -->
-       <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-       <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-       <link rel="shortcut icon" href="../assets/ico/favicon.png">
-   </head>
-
+    <body> 
+        <div class="biggestContainer">
+            <div class="powderblue">
+                <a href="index.html"><img src ="https://dewey.tailorbrands.com/production/brand_version_mockup_image/97/2380318097_dcfac23c-08e1-4f63-b3ef-355de277bd42.png?cb=1572954217"></a>
+                <ul>
+                    <li class="active"><a href="adminHome.jsp">Home</a></li>
+                     <li><a href="UserManagement?action=List"> User Management</a></li>
+                   <li><a href="ProductManagementServlet?action=List">Product Management</a></li>
+                     <li><a href="index.html">Logout</a></li>
+                    <li><a href="Cart.jsp"><i class="fa fa-1x fas fa-shopping-bag" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
    <body>
 
        <div class="navbar navbar-inverse navbar-fixed-top">
@@ -61,7 +45,7 @@
                        <span class="icon-bar"></span>
                        <span class="icon-bar"></span>
                    </button>
-                   <a class="brand" href="#">Project name</a>
+              
                    <div class="nav-collapse collapse">
                        <p class="navbar-text pull-right">
                            <% User user = (User) session.getAttribute("SKUSER");%>
@@ -78,48 +62,47 @@
                </div>
            </div>
        </div>
-       <div class="container-fluid">
-           <div class="row-fluid">
-               <div class="span3">
-                   <div class="well sidebar-nav">
-                       <ul class="nav nav-list">
-                           <li class="nav-header">User Tasks</li>
-                           <li class="active"><a href="UserManagement?action=List">User Management</a></li>
-                           <li class="nav-header">Reports</li>
-                           <li><a href="Stock.jsp">Stock</a></li>
-                           <li><a href="Activity.jsp">User Activity</a></li>
-                           <li><a href="Sales.jsp">Sales Activity</a></li>
-                           <li class="nav-header">Test</li>
-                           <li><a href="/BootStrapLogin/TestPage">Test Page</a></li>
-                       </ul>
-                   </div><!--/.well -->
-               </div><!--/span-->
-               <div class="span9">
-                   <div class="hero-unit">
-                   </div>
-                   <form action="<c:url value='/UserManagement?action=updateUserConfirm'/>" method = "POST">
+       
+                   <form action="<c:url value='/ProductManagementServlet?action=updateProductConfirm'/>" method = "POST">
                        <div>
-                           <h2> <%= session.getAttribute("UPDATE_PRODUCT_ID")%> - Product ID</h2>
-                           <input type="hidden" name="id" value="<%= session.getAttribute("UPDATE_USER_ID")%>">
+                           <h2> Update Product</h2>
+                           <input type="hidden" name="ID" value="<%= session.getAttribute("UPDATE_PRODUCT_ID")%>">
                        </div>
                        <div>
-                           <label for="fname">First Name</label>
-                           <input type="text"  name="fname" value="<%= session.getAttribute("UPDATE_USER_FNAME")%>"/>
+                           <label for="fname">Name:</label>
+                           <input type="text"  name="NAME" value="<%= session.getAttribute("UPDATE_PRODUCT_NAME")%>"/>
                        </div>
                        <div>
-                           <label for="lname">Last Name</label>
-                           <input type="text"  name="lname" value="<%= session.getAttribute("UPDATE_USER_LNAME")%>"/>
+                           <label for="lname">Type:</label>
+                           <input type="text"  name="TYPE" value="<%= session.getAttribute("UPDATE_PRODUCT_TYPE")%>"/>
                        </div>
                        <div>
-                           <label for="description">Email</label>
-                           <input type="text"  name="email" value="<%= session.getAttribute("UPDATE_USER_EMAIL")%>"/>
+                           <label for="description">Colour:</label>
+                           <input type="text"  name="COLOR" value="<%= session.getAttribute("UPDATE_PRODUCT_COLOR")%>"/>
+                       </div>
+                       
+                       <div>
+                           <label for="description">Description:</label>
+                           <input type="text"  name="DESCRIPTION" value="<%= session.getAttribute("UPDATE_PRODUCT_DESCRIPTION")%>"/>
+                       </div>
+                       <div>
+                           <label for="description">Cost:</label>
+                           <input type="text"  name="COST" value="<%= session.getAttribute("UPDATE_PRODUCT_UNITCOST")%>"/>
                        </div>
                        <br/>
                        <br/>
+                       <input type="hidden" name="CODE" value="<%= session.getAttribute("UPDATE_PRODUCT_CODE")%>"/>
                        <button type="submit" class="btn btn-primary">Update</button>
                    </form>
                </div>
-           </div>
-       </div>
+           
+         <footer>
+            <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-2x fab fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-2x fab fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-2x fas fa-envelope-square" aria-hidden="true"></i>
+            <i class="fa fa-2x fas fa-address-book" aria-hidden="true"></i> 
+        </footer>
+
    </body>
 </html>

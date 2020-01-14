@@ -151,7 +151,7 @@ public class ProductDao {
     public void updateProduct(LipProduct p){
     DBManager dbmgr =new DBManager();
     Connection conn=dbmgr.getConnection();
-    String sql="UPDATE PRODUCTS SET NAME =?, TYPE=?, IMAGE=?, DESCRIPTION=?, COLOR=?, UNITCOST=? WHERE CODE=?";
+    String sql="UPDATE PRODUCT SET NAME =?, TYPE=?, IMAGE=?, DESCRIPTION=?, COLOR=?, UNITCOST=? WHERE CODE=?";
     try{
         
     PreparedStatement ps=conn.prepareStatement(sql);
@@ -168,6 +168,7 @@ public class ProductDao {
 
     }catch (SQLException sqlExcept) {
             logger.log(Level.SEVERE, null, sqlExcept);
+            System.out.println("SQLERROR");
         }
     
     }

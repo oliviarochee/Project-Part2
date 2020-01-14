@@ -5,7 +5,7 @@
 --%>
 <%@page import="Models.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,8 +39,10 @@
                             
                             <% User user = (User)session.getAttribute("SKUSER"); %> 
                             <%   if (user != null) { %>
-   
-                                 <form action="Cart?action=cart" method="POST">
+   <c:url var="checkoutUrl" value="/Cart">
+                <c:param name="action" value="cart"/>
+            </c:url>
+                                 <form action="${checkoutUrl}" method="POST">
                                 <input type="hidden" value="LP01" name="CODE">
                                 <button class="add_cart_btn" type="submit">Add To Cart<i class="fa fa-shopping-cart"></i></button></form>
                             <% } else { %>

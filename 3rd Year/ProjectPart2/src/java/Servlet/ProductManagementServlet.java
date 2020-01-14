@@ -43,28 +43,30 @@ public class ProductManagementServlet extends HttpServlet implements IConstants 
         if (action.equals("delete")) {
             deleteProduct(request, response);
         }
-           if (action.equals("updateUserRedirect")) {
-            updateUserRedirect(request, response);
+           if (action.equals("updateProductRedirect")) {
+            updateProductRedirect(request, response);
         }
-        if (action.equals("updateUserConfirm")) {
+        if (action.equals("updateProductConfirm")) {
             updateProductConfirm(request, response);
         }
     }
     
     
-    void updateUserRedirect(HttpServletRequest request, HttpServletResponse response)
+    void updateProductRedirect(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/update-user.jsp");
-        String code = request.getParameter("code");
+       
+        String code = request.getParameter("CODE");
         ProductDao productDAO = new ProductDao();
         LipProduct Product = productDAO.getProductByCode(code);
         request.getSession(true).setAttribute("UPDATE_PRODUCT", Product);
         request.getSession(true).setAttribute("UPDATE_PRODUCT_ID", Product.getProductID());
+        request.getSession(true).setAttribute("UPDATE_PRODUCT_NAME", Product.getName());
         request.getSession(true).setAttribute("UPDATE_PRODUCT_CODE", Product.getCode());
         request.getSession(true).setAttribute("UPDATE_PRODUCT_TYPE", Product.getType());
         request.getSession(true).setAttribute("UPDATE_PRODUCT_DESCRIPTION", Product.getDescription());
         request.getSession(true).setAttribute("UPDATE_PRODUCT_COLOR", Product.getColor());
         request.getSession(true).setAttribute("UPDATE_PRODUCT_UNITCOST", Product.getUnitcost());
+        RequestDispatcher rd = request.getRequestDispatcher("/update-product.jsp");
         rd.forward(request, response);
     }
 
@@ -73,15 +75,28 @@ public class ProductManagementServlet extends HttpServlet implements IConstants 
         String code = request.getParameter("CODE");
         String name = request.getParameter("NAME");
         String type = request.getParameter("TYPE");
+        String color = request.getParameter("COLOR");
         String description = request.getParameter("DESCRIPTION");
+        String unitcost= request.getParameter("COST");
         ProductDao ProductDAO = new ProductDao();
         LipProduct newProduct= new LipProduct();
         
         newProduct.setCode(code);
+        newProduct.setName(name);
+        newProduct.setType(type);
+        newProduct.setColor(color);
+        newProduct.setDescription(description);
+        newProduct.setUnitcost(unitcost);
         
 
         ProductDAO.updateProduct(newProduct);
-        listProducts(request, response);
+        Vector<LipProduct> allProductVect = ProductDAO.getAllProducts();
+
+        request.setAttribute(IConstants.REQUEST_KEY_ALL_PRODUCTS, allProductVect);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/AdminChangeProducts.jsp");
+        rd.forward(request, response);
+        
     }
 
     private void listProducts(HttpServletRequest request, HttpServletResponse response)
